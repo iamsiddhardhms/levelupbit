@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#8a0062",
+                    "surface-container-high": "#2a292f",
+                    "surface-container-lowest": "#0e0e13",
+                    "on-surface-variant": "#b9cacb",
+                    "on-secondary-container": "#56003b",
+                    "surface-variant": "#35343a",
+                    "surface-dim": "#131318",
+                    "outline": "#849495",
+                    "on-secondary-fixed": "#3c0029",
+                    "tertiary-container": "#ebcfff",
+                    "surface-bright": "#39383e",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#006970",
+                    "tertiary": "#fdf2ff",
+                    "secondary-container": "#ff3cbb",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#1b1b20",
+                    "outline-variant": "#3b494b",
+                    "primary": "#dbfcff",
+                    "primary-fixed-dim": "#00dbe9",
+                    "on-primary-container": "#006970",
+                    "on-tertiary-fixed": "#2d004f",
+                    "tertiary-fixed-dim": "#dfb7ff",
+                    "inverse-on-surface": "#303036",
+                    "on-primary-fixed": "#002022",
+                    "secondary-fixed": "#ffd8e9",
+                    "primary-fixed": "#7df4ff",
+                    "secondary-fixed-dim": "#ffafd7",
+                    "on-primary": "#00363a",
+                    "surface": "#131318",
+                    "on-secondary": "#620044",
+                    "surface-tint": "#00dbe9",
+                    "on-tertiary-container": "#8d00e5",
+                    "on-tertiary-fixed-variant": "#6b00b0",
+                    "tertiary-fixed": "#f1daff",
+                    "on-background": "#e4e1e9",
+                    "surface-container-highest": "#35343a",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e4e1e9",
+                    "on-surface": "#e4e1e9",
+                    "on-tertiary": "#4b007e",
+                    "background": "#131318",
+                    "surface-container": "#1f1f25",
+                    "secondary": "#ffafd7",
+                    "primary-container": "#00f0ff",
+                    "on-primary-fixed-variant": "#004f54"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin": "40px",
+                    "unit": "8px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-md": ["Space Grotesk"],
+                    "body-lg": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "label-caps": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(0, 240, 255, 0.2)
+    }
+.neon-border-glow {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1)
+    }
+.segmented-progress {
+    display: flex;
+    gap: 4px
+    }
+.progress-segment {
+    height: 8px;
+    flex-grow: 1;
+    background: #2a292f
+    }
+.progress-segment.active {
+    background: #00f0ff;
+    box-shadow: 0 0 10px #00f0ff
+    }
+.grain {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDCDaQE1EqoUC413j-Ivn2otQ6V-8Emw0UdPL8p596HNq1JXC_sSSIR4aMk4DH-7sNXbmVSpJQkDeTDskh5XBjH2bghmhIYc7CZ8svPd1rOC4t_mUhN-LIhCP0EFcTmBveZTr0bk0RrjQtotGwLhJXuvt6tPGKCVl0ENodw79t_LxOOdVjGTnoHjn68A-zlN9a6YhmJdSpC_sNry8BDFM3uTF6g_sRqQ_JKZ88ki2hA_uxRq5k8RLcYW2tjxqiS2bSIVMt6LJMgRCSc);
+    filter: contrast(150%) brightness(100%);
+    opacity: 0.03
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-lowest text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen pb-24">
+<div class="fixed inset-0 pointer-events-none grain z-[-1]"></div>
+<!-- TopAppBar -->
+<header class="bg-zinc-950/80 backdrop-blur-2xl text-cyan-400 font-['Space_Grotesk'] tracking-widest font-bold sticky top-0 z-50 border-b border-cyan-500/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)] flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="relative group">
+<div class="absolute -inset-1 bg-cyan-400 rounded-full opacity-20 blur group-hover:opacity-40 transition duration-300"></div>
+<img alt="Pilot HUD Profile" class="w-10 h-10 rounded-full border-2 border-cyan-400 object-cover relative" data-alt="Futuristic cybernetic pilot profile portrait with neon blue hud overlays and atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVRxLzPMUVqOogkkdp-a156oU-FBon1bcGkO-Qk4k-Olywbz3sEso5iSpS2yhxYidSylWkaRWLnFaiKrKa3ILeDEsODUtEjRkeCNNdnAiD1Un3DKooXAGF5-Klp5OsNKMCKJTyioPuwMNlDMpm4C8vaWhlbDI_mlBYHiUFhSiVPIG_5kG7wqky_UoCtRt7rKXbqyfZ3Unyfp4nZYp9aB1luH_lKxJWqeGm9lps0oPFRWPv2C5WRDvKTa46g1WDXSpHYrGBaY3QqggT"/>
+</div>
+<span class="text-2xl font-black italic tracking-tighter text-cyan-400 drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]">LEVEL UP</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-cyan-400 drop-shadow-[0_0_10px_rgba(0,240,255,0.7)] cursor-pointer active:scale-95 transition-all" data-icon="settings_suggest">settings_suggest</span>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-6 md:px-margin mt-10">
+<!-- Momentum Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-on-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full font-label-caps text-label-caps border border-on-tertiary-container/30">MOMENTUM MODE</span>
+<div class="flex items-center gap-2 bg-zinc-900/80 px-4 py-1 rounded-full border border-cyan-500/30 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+<span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-cyan-400 tracking-tighter">12k warriors joined</span>
+</div>
+</div>
+<h1 class="font-display-xl text-display-xl text-on-surface uppercase tracking-tighter">Challenge <span class="text-primary-container">Journeys</span></h1>
+</div>
+<div class="flex flex-col items-end">
+<div class="text-zinc-500 font-label-caps text-label-caps mb-2">GLOBAL RANK</div>
+<div class="font-headline-lg text-headline-lg text-white">#4,281</div>
+</div>
+</div>
+<!-- Hero Challenges Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-16">
+<!-- Focus Reset -->
+<div class="group relative overflow-hidden rounded-xl glass-card p-1 transition-all duration-500 hover:border-cyan-400/60">
+<div class="relative h-64 overflow-hidden rounded-lg mb-6">
+<img alt="Focus Reset" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Digital neural network representation with glowing cyan energy paths on deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4YYQI4pTjZ0fgDy22lqu1fL5Dbx79UWutryCTzpxDLDvuOmhJ5IbvIBgcBtSAMDdF6uYeVWwX8w8yXaXd94PAqi4ddbGtN4P6eWaWxhmJCf8QOdPr4RNN9yi0qQIhBy7iLZY5T821uSbsIYl-g9tP7gH88CPCq7_FPHEMUhVhle1ZWvVGrR5fU7c_7Pv8E1LiYvFoWyZ2oFYRpOJI4CiKJpzw2MpBCO86fZfoIfbVCRfKkiWTpTttYIkiFt0lMPn5jYXkynqYD8H6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-cyan-500 text-zinc-950 px-3 py-1 rounded font-label-caps text-label-caps">ACTIVE JOURNEY</span>
+</div>
+</div>
+<div class="px-6 pb-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Focus Reset</h3>
+<p class="text-zinc-400 font-body-md text-body-md mb-6 leading-relaxed">30-day neuro-rewiring protocol to eliminate digital fatigue and master deep work.</p>
+<div class="segmented-progress mb-4">
+<div class="progress-segment active"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment active"></div>
+<div class="progress-segment"></div>
+<div class="progress-segment"></div>
+<div class="progress-segment"></div>
+<div class="progress-segment"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-cyan-400 font-label-caps text-label-caps uppercase">Day 8 of 30</span>
+<span class="text-zinc-500 font-label-caps text-label-caps uppercase">XP +2,500</span>
+</div>
+</div>
+</div>
+<!-- Creator Path -->
+<div class="group relative overflow-hidden rounded-xl glass-card p-1 transition-all duration-500 hover:border-secondary-container/60">
+<div class="relative h-64 overflow-hidden rounded-lg mb-6">
+<img alt="Creator Path" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" data-alt="Abstract vibrant magenta and orange fluid motion with neon light streaks in a dark void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfiYoaedimjRZ7WbmOYqk-9DjMCr0q3ixj1yFRKuMe7qs612RoYBKcp5R78EvFhECnVK4R0kFg2mf30vZ-4qEE1tr_cc1IISa5pMO6uGDJiF7vJds_ZzZQ3G8hftrX9FqOy2S_xK8Rjn-KnHD1W2Sj1Ikd8FJbUNMBCaOzoqxlX2ECwUeZ-KAyAnmDZovN8vt1vR9p_dBYtSl0b_ZxiJj8nt3Mi6zJBZU0zbT3Zht1Fj5JmoC5mmYnfpk1PDx_yYLz1uwZ6Uq-g5os"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+<div class="absolute top-4 right-4">
+<span class="bg-secondary-container/20 text-secondary-container border border-secondary-container/40 px-3 py-1 rounded-full font-label-caps text-label-caps">LOCKED</span>
+</div>
+</div>
+<div class="px-6 pb-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Creator Path</h3>
+<p class="text-zinc-400 font-body-md text-body-md mb-6 leading-relaxed">Scale your output to elite levels with structured creative sprint rituals and systems.</p>
+<button class="w-full bg-zinc-900 border border-zinc-700 text-zinc-500 py-3 rounded font-label-caps text-label-caps hover:bg-zinc-800 transition-colors">UNLOCK AT LVL 15</button>
+</div>
+</div>
+<!-- Stoic Endurance -->
+<div class="group relative overflow-hidden rounded-xl glass-card p-1 transition-all duration-500 hover:border-on-tertiary-container/60">
+<div class="relative h-64 overflow-hidden rounded-lg mb-6">
+<img alt="Stoic Endurance" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" data-alt="Minimalist cold mountain peaks under a starry night sky with sharp clean edges and high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1iMLKKmxuuqSJpfxg5Y0IhzJlwAaau-d6PwwR0lAMcxRxi6WxhrJwc0ssg3V-roIax_YrTUr_AvCgMOjurqztyk0ZgiP1Ocbtp9eh4AAa7euxqvmlygEKWY4ZTH6A89_l-c1LK1s6Hkc5D2pZbIFpGM2aKEK-oJDdW_4MRAUGAOy5B7TngxYGEWGtSeTbvm7x6wvlp-4_41-N3_v1BSOInxhnR0VCEX5_Xr4kqjFdk6GidKIh2XZSfQg-1owyIN26wEDD16q-Pev2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+</div>
+<div class="px-6 pb-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Stoic Endurance</h3>
+<p class="text-zinc-400 font-body-md text-body-md mb-6 leading-relaxed">Master emotional regulation and grit through cold exposure and mental friction training.</p>
+<button class="w-full bg-transparent border-2 border-on-tertiary-container/40 text-on-tertiary-container py-3 rounded font-label-caps text-label-caps hover:bg-on-tertiary-container/10 transition-colors">COMMENCE PROTOCOL</button>
+</div>
+</div>
+</div>
+<!-- Daily Checklist & Bento Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-12">
+<!-- Checklist Card -->
+<div class="lg:col-span-7 glass-card rounded-xl p-unit px-8 py-8 relative overflow-hidden">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-lg text-headline-lg uppercase text-white tracking-tight">Daily Missions</h2>
+<span class="text-primary-container font-headline-md text-headline-md">3/5</span>
+</div>
+<div class="space-y-6">
+<!-- Task 1 (Completed) -->
+<div class="flex items-center gap-6 p-4 rounded-lg bg-white/5 border-l-4 border-cyan-400 group transition-all">
+<div class="relative">
+<div class="absolute -inset-2 bg-cyan-400 opacity-20 blur-md rounded-full"></div>
+<span class="material-symbols-outlined text-cyan-400 text-3xl font-bold" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg text-cyan-100 uppercase tracking-wide">60m Deep Work Block</p>
+<p class="text-zinc-500 text-sm">Session completed at 09:15 AM</p>
+</div>
+<span class="font-label-caps text-label-caps text-cyan-400">+500 XP</span>
+</div>
+<!-- Task 2 (Completed) -->
+<div class="flex items-center gap-6 p-4 rounded-lg bg-white/5 border-l-4 border-cyan-400 group transition-all">
+<div class="relative">
+<div class="absolute -inset-2 bg-cyan-400 opacity-20 blur-md rounded-full"></div>
+<span class="material-symbols-outlined text-cyan-400 text-3xl font-bold" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg text-cyan-100 uppercase tracking-wide">Physical Friction: Zone 2</p>
+<p class="text-zinc-500 text-sm">45m Heart rate threshold met</p>
+</div>
+<span class="font-label-caps text-label-caps text-cyan-400">+750 XP</span>
+</div>
+<!-- Task 3 (In Progress) -->
+<div class="flex items-center gap-6 p-4 rounded-lg bg-white/5 border-l-4 border-zinc-700 group hover:border-cyan-400/40 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-zinc-600 text-3xl group-hover:text-cyan-400/60" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg text-white uppercase tracking-wide">Mindset Refraction</p>
+<p class="text-zinc-500 text-sm">Log 3 gratitudes in the console</p>
+</div>
+<span class="font-label-caps text-label-caps text-zinc-500 group-hover:text-white transition-colors">START MISSION</span>
+</div>
+<!-- Task 4 (In Progress) -->
+<div class="flex items-center gap-6 p-4 rounded-lg bg-white/5 border-l-4 border-zinc-700 group hover:border-cyan-400/40 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-zinc-600 text-3xl group-hover:text-cyan-400/60" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg text-white uppercase tracking-wide">Skill Synthesizer</p>
+<p class="text-zinc-500 text-sm">Learn 1 new technical concept</p>
+</div>
+<span class="font-label-caps text-label-caps text-zinc-500 group-hover:text-white transition-colors">START MISSION</span>
+</div>
+</div>
+</div>
+<!-- Side Stats Bento -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<div class="glass-card rounded-xl p-8 flex-1 border-on-secondary-container/20 group hover:border-on-secondary-container/50 transition-all duration-500">
+<div class="flex items-center justify-between mb-6">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl" data-icon="bolt">bolt</span>
+<span class="text-on-secondary-container font-label-caps text-label-caps uppercase tracking-widest">Active Streak</span>
+</div>
+<div class="text-display-xl font-display-xl text-white mb-2">12 <span class="text-headline-md font-headline-md text-zinc-500 uppercase">Days</span></div>
+<p class="text-zinc-400 text-sm leading-relaxed">You are in the top 5% of participants. Maintain for 3 more days to unlock "Unyielding" badge.</p>
+</div>
+<div class="glass-card rounded-xl p-8 flex-1 border-primary-container/20 bg-gradient-to-br from-zinc-950 to-cyan-950/20">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center border border-primary-container/30">
+<span class="material-symbols-outlined text-primary-container" data-icon="hub">hub</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white uppercase tracking-tight">Warrior Network</h4>
+</div>
+<div class="flex -space-x-3 mb-6">
+<img class="w-10 h-10 rounded-full border-2 border-zinc-950 object-cover" data-alt="Close up portrait of a man with serious expression and cinematic neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBpVRQC5w_CrqXhozHEj1ngoTqxaZuHXOQ54b9O5JoUuZWq7qTjy08KmdkTFyfJFw_STw4Qv4LSfkFyKsUWbUmixurhLxoa0aKs-HzPvFXCw80BGRCElEVeYAOKwnUxMqSoGO_TczdwLSFYOCU5hoFTrXSoICgpvhawnueN86KQ-FgyvmCLHU6usNAuy1P49-9R1H-gULo-r7S1ortqfZGTSW-GXhda4xGcj7oCfBMbutVVm_F5szX9cb99AQU4z6JkVzkVPbOPXhw"/>
+<img class="w-10 h-10 rounded-full border-2 border-zinc-950 object-cover" data-alt="Portrait of a woman with vibrant lighting and futuristic digital makeup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc9o0odKUxL9IzqHjXFe-pUX42WkaoPMa47uLqpmuPX_FdQqFqplC9ou657xyVNggYe4tSteY6JQD3PL5oOTom03wVtmo_FTvOSFMuMyLa3rGcFI24-Z1BregPb-PAz0Xnom74xw2BWsLUOpI6X5jrXg6kOgBVK5_N32lH3gccF1xrrkNUCRH8oylQdTzxdNekPs3oNx0UsOLn4xdv7LY9d44t5PslUo7SyUAA1fhmmxQz7vDZmZ6MMzkS5v4eq9WIXeNarEMjJ_cW"/>
+<img class="w-10 h-10 rounded-full border-2 border-zinc-950 object-cover" data-alt="Male portrait with dark moody background and subtle blue light highlighting features" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2aszZkmOlCKcXM7SwcUuqaM9M8qU4Bq1J_N-9_CXq_oTBJDk4kB9C3_HftM5Ba4IwLrXM4Uo_GoZ3V00XXd9fJKGYwW7o4mgZ7pjfVXMjlcvZRLWldaBaXdCOr43FWw7QLn6SergpWjoX_9g8YkvlLoCKefFJKt9a1qUSul41ug99mP0KYu9oBcCV8p_sW9UIEqY5_LLFmE-k4lJmUY5WxUlNd7i5QscpnQ_o4KSAFgC07hX11SCmKLktoiAqZCQllgOZBjPgYodg"/>
+<div class="w-10 h-10 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center text-[10px] text-white font-bold">+12k</div>
+</div>
+<button class="w-full py-4 rounded-lg bg-primary-container text-zinc-950 font-label-caps text-label-caps shadow-[0_0_25px_rgba(0,240,255,0.4)] hover:shadow-[0_0_40px_rgba(0,240,255,0.6)] transition-all active:scale-95">ENTER SQUAD HUB</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-zinc-950/90 backdrop-blur-3xl border-t border-cyan-500/30 shadow-[0_-10px_40px_rgba(0,240,255,0.1)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-2xl" data-icon="speed">speed</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Timer</span>
+</div>
+<div class="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_15px_rgba(0,240,255,0.9)] animate-pulse scale-110 cursor-pointer">
+<span class="material-symbols-outlined text-2xl" data-icon="query_stats" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Progress</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-2xl" data-icon="smart_toy">smart_toy</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Coach</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-2xl" data-icon="hub">hub</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Community</span>
+</div>
+</nav>
+<!-- FAB for Momentum Activation -->
+<button class="fixed right-6 bottom-28 md:right-margin md:bottom-32 bg-primary-container text-zinc-950 p-4 rounded-full shadow-[0_0_30px_rgba(0,240,255,0.5)] z-40 active:scale-90 transition-transform flex items-center justify-center group">
+<span class="material-symbols-outlined text-3xl font-black group-hover:rotate-180 transition-transform duration-500" data-icon="bolt">bolt</span>
+</button>
+</body></html>

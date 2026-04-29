@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEVEL UP | AI Discipline Coach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#8a0062",
+                        "surface-container-high": "#2a292f",
+                        "surface-container-lowest": "#0e0e13",
+                        "on-surface-variant": "#b9cacb",
+                        "on-secondary-container": "#56003b",
+                        "surface-variant": "#35343a",
+                        "surface-dim": "#131318",
+                        "outline": "#849495",
+                        "on-secondary-fixed": "#3c0029",
+                        "tertiary-container": "#ebcfff",
+                        "surface-bright": "#39383e",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#006970",
+                        "tertiary": "#fdf2ff",
+                        "secondary-container": "#ff3cbb",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1b1b20",
+                        "outline-variant": "#3b494b",
+                        "primary": "#dbfcff",
+                        "primary-fixed-dim": "#00dbe9",
+                        "on-primary-container": "#006970",
+                        "on-tertiary-fixed": "#2d004f",
+                        "tertiary-fixed-dim": "#dfb7ff",
+                        "inverse-on-surface": "#303036",
+                        "on-primary-fixed": "#002022",
+                        "secondary-fixed": "#ffd8e9",
+                        "primary-fixed": "#7df4ff",
+                        "secondary-fixed-dim": "#ffafd7",
+                        "on-primary": "#00363a",
+                        "surface": "#131318",
+                        "on-secondary": "#620044",
+                        "surface-tint": "#00dbe9",
+                        "on-tertiary-container": "#8d00e5",
+                        "on-tertiary-fixed-variant": "#6b00b0",
+                        "tertiary-fixed": "#f1daff",
+                        "on-background": "#e4e1e9",
+                        "surface-container-highest": "#35343a",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e4e1e9",
+                        "on-surface": "#e4e1e9",
+                        "on-tertiary": "#4b007e",
+                        "background": "#131318",
+                        "surface-container": "#1f1f25",
+                        "secondary": "#ffafd7",
+                        "primary-container": "#00f0ff",
+                        "on-primary-fixed-variant": "#004f54"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin": "40px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-md": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"],
+                        "display-xl": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        .neon-border-glow {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .typing-pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.4; transform: scale(0.8); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<nav class="bg-zinc-950/80 backdrop-blur-2xl text-cyan-400 font-['Space_Grotesk'] tracking-widest font-bold sticky top-0 z-50 flex justify-between items-center w-full px-6 py-4 border-b border-cyan-500/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full border-2 border-primary-container overflow-hidden shadow-[0_0_10px_rgba(0,240,255,0.5)]">
+<img class="w-full h-full object-cover" data-alt="Modern high-tech character portrait with holographic interface overlays in cyan and magenta lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpFkctKsGXwKJw7EU1mFsCY5-YbpmOD-mGHcIBiuXYkSQt5r0DM1p1fs_NIibqifcUqXwyraTsm2_tXwVnNmy0xi4ME5pe4K9XqHlLonoFrrevjeKTrI35Cwh_EKkrZWZX8d9B4tURoQftpQdXfLSQT6sZyQVDvOMhY5wBFH4MXkcQs2uVorfHfir987kKnw_RjHIUxAr1yLfRt_lEdaeF1rAaJLmeYb3kfYpSSF9HubgoVh0YQVtg4r7SRYmumSR0BW2mWSaSAhoE"/>
+</div>
+<span class="text-2xl font-black italic tracking-tighter text-cyan-400 drop-shadow-[0_0_10px_rgba(0,240,255,0.8)] uppercase">LEVEL UP</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-cyan-400 cursor-pointer hover:text-white transition-all duration-300" data-icon="settings_suggest">settings_suggest</span>
+</div>
+</nav>
+<main class="min-h-screen cyber-grid pt-gutter pb-32 px-4 md:px-margin">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Sidebar: Coach Stats & Status -->
+<div class="hidden lg:block lg:col-span-3 space-y-gutter">
+<div class="glass-panel p-unit rounded-xl border-cyan-500/40">
+<div class="p-4 space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-zinc-400">SESSION MODE</span>
+<span class="px-2 py-0.5 bg-primary-container/20 text-primary-container text-[10px] font-bold rounded-full">ULTRA-FOCUS</span>
+</div>
+<div class="space-y-1">
+<div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[78%] shadow-[0_0_8px_rgba(0,240,255,1)]"></div>
+</div>
+<div class="flex justify-between font-label-caps text-[10px] text-zinc-500">
+<span>COACH SYNC</span>
+<span>78%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl border-cyan-500/30">
+<h3 class="font-headline-md text-headline-md text-primary-container mb-4">TACTICAL GOALS</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3 p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
+<span class="material-symbols-outlined text-secondary" data-icon="rocket_launch">rocket_launch</span>
+<div>
+<p class="text-sm font-bold text-white">Morning Routine</p>
+<p class="text-xs text-zinc-500">12 Day Streak</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="fitness_center" data-weight="fill" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+<div>
+<p class="text-sm font-bold text-white">Strength Training</p>
+<p class="text-xs text-zinc-500">Next: 18:00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Chat Interface -->
+<div class="lg:col-span-6 flex flex-col gap-gutter h-[calc(100vh-180px)]">
+<div class="flex-1 overflow-y-auto space-y-6 px-2 custom-scrollbar">
+<!-- AI Message -->
+<div class="flex items-end gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary-container shadow-[0_0_15px_rgba(0,240,255,0.4)] flex-shrink-0 mb-1">
+<span class="material-symbols-outlined text-primary-container animate-pulse" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="glass-panel p-4 rounded-2xl rounded-bl-none max-w-[85%] border-primary-container/30">
+<p class="font-body-md text-primary">Good morning, Commander. Your delta-waves indicate optimal recovery. Are you ready to execute the 7-Day Discipline Overhaul roadmap we discussed?</p>
+<span class="block mt-2 text-[10px] text-zinc-500 font-label-caps uppercase">08:00 AM • AURORA AI</span>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex items-end gap-4 flex-row-reverse">
+<div class="w-10 h-10 rounded-full border border-zinc-500 overflow-hidden flex-shrink-0 mb-1">
+<img class="w-full h-full object-cover grayscale" data-alt="Close-up of user's profile with subtle cinematic grain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjNdTlWyjR8LQqVQnZPOfPut6RafLWIYGGfCPkn9dTniAt2HavkdbkAozjQWsx2cKjuKIddPmhZWvN5KQsQiJMdj_kmtrplNC_oMvL2OkKtjU_guiTl1FflalqEILom6HRF0A9hIQ6th1UrnfEMDXDmSxIffIdnPey5HwRmA3NwUNAUeEr_oyg5eGcVJUyb21vOMM0HnTO4ql9bjfBt6SsHtVXNl4Z48TQb_98V-vvazhXwlYWzhhPFiHgD_Miv5Xe7nhIMAibyMPP"/>
+</div>
+<div class="bg-zinc-800/40 backdrop-blur-md p-4 rounded-2xl rounded-br-none max-w-[85%] border border-zinc-600/50 shadow-inner">
+<p class="font-body-md text-zinc-200">I'm ready. I've been struggling with late-night distractions though. How do we mitigate that in the roadmap?</p>
+<span class="block mt-2 text-[10px] text-zinc-500 font-label-caps uppercase text-right">08:01 AM • SENT</span>
+</div>
+</div>
+<!-- Actionable Coach Card -->
+<div class="flex items-end gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary-container shadow-[0_0_15px_rgba(0,240,255,0.4)] flex-shrink-0 mb-1">
+<span class="material-symbols-outlined text-primary-container" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="w-full max-w-[85%] space-y-3">
+<div class="glass-panel p-4 rounded-2xl rounded-bl-none border-primary-container/30">
+<p class="font-body-md text-primary">Understood. I've adjusted the protocol. Here is your revised high-performance roadmap. Click to expand technical specs.</p>
+</div>
+<!-- Expandable Card -->
+<div class="glass-panel rounded-xl border-primary-container/50 overflow-hidden neon-border-glow group cursor-pointer active:scale-95 transition-all">
+<div class="bg-primary-container/10 px-4 py-3 flex justify-between items-center border-b border-primary-container/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="fact_check">fact_check</span>
+<span class="font-bold text-primary tracking-wide">7-DAY DISCIPLINE ROADMAP v2.1</span>
+</div>
+<span class="material-symbols-outlined text-primary-container group-hover:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex items-center justify-between p-2 bg-black/40 rounded border border-zinc-800">
+<span class="text-xs font-label-caps text-zinc-400">PHASE 01</span>
+<span class="text-xs font-bold text-primary">Dopamine Detox</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-black/40 rounded border border-zinc-800">
+<span class="text-xs font-label-caps text-zinc-400">PHASE 02</span>
+<span class="text-xs font-bold text-primary">Deep Work Sprints</span>
+</div>
+<div class="pt-2">
+<button class="w-full py-2 bg-primary-container text-on-primary-container font-black text-xs tracking-widest rounded shadow-[0_0_20px_rgba(0,240,255,0.4)] uppercase">INITIATE PROTOCOL</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center border border-primary-container/20 flex-shrink-0">
+<span class="material-symbols-outlined text-primary-container/50" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="flex gap-1.5 p-3 bg-zinc-900/40 rounded-full border border-zinc-800">
+<div class="w-1.5 h-1.5 bg-primary-container rounded-full typing-pulse"></div>
+<div class="w-1.5 h-1.5 bg-primary-container rounded-full typing-pulse [animation-delay:0.2s]"></div>
+<div class="w-1.5 h-1.5 bg-primary-container rounded-full typing-pulse [animation-delay:0.4s]"></div>
+</div>
+</div>
+</div>
+<!-- Input Slot -->
+<div class="glass-panel p-4 rounded-2xl border-cyan-500/40 neon-border-glow">
+<div class="flex items-center gap-4">
+<div class="flex-1 relative">
+<input class="w-full bg-[#0F0F12] border-0 border-b-2 border-primary-container/40 focus:border-primary-container focus:ring-0 text-white placeholder-zinc-600 font-body-md py-3 px-4 transition-all" placeholder="Upload directive..." type="text"/>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 flex gap-2">
+<span class="material-symbols-outlined text-zinc-500 cursor-pointer hover:text-primary-container" data-icon="mic">mic</span>
+<span class="material-symbols-outlined text-zinc-500 cursor-pointer hover:text-primary-container" data-icon="attach_file">attach_file</span>
+</div>
+</div>
+<button class="w-12 h-12 rounded-xl bg-primary-container text-on-primary shadow-[0_0_15px_rgba(0,240,255,0.5)] flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Achievement & XP -->
+<div class="hidden lg:block lg:col-span-3 space-y-gutter">
+<div class="glass-panel p-6 rounded-xl border-secondary/30">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-headline-md text-secondary">AWARDS</h3>
+<span class="px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-black rounded border border-secondary/20">LEVEL 14</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square bg-zinc-900 rounded border border-zinc-800 flex items-center justify-center group cursor-help">
+<span class="material-symbols-outlined text-secondary opacity-40 group-hover:opacity-100 transition-opacity" data-icon="military_tech">military_tech</span>
+</div>
+<div class="aspect-square bg-zinc-900 rounded border border-zinc-800 flex items-center justify-center group cursor-help">
+<span class="material-symbols-outlined text-primary-container opacity-40 group-hover:opacity-100 transition-opacity" data-icon="verified">verified</span>
+</div>
+<div class="aspect-square bg-zinc-900 rounded border border-zinc-800 flex items-center justify-center group cursor-help">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant opacity-40 group-hover:opacity-100 transition-opacity" data-icon="workspace_premium">workspace_premium</span>
+</div>
+</div>
+</div>
+<div class="glass-panel overflow-hidden rounded-xl border-zinc-700">
+<img class="w-full h-32 object-cover opacity-60" data-alt="Futuristic cybernetic hardware with glowing blue internal circuits and liquid cooling components" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7NAVAIOiCiCW4Z-Sr3FwCqMejJKCuDK7R9MLWtWEMH7656jp-BGUfFyYn4APWrrVrGzBbvTjRBSqyzTYKjzukRcptEX1FrRK27h7llKlxmbmMMs-Yq2YkR6cKsKmWonHQtfYEZ8RrhNvzrsTYuPn0-6qHQmm6e10jj1hgC4zxogB2l2tknkBEDNjmCsulEPdP4N7LP9t9ipU47nvOdllFjKYt_0eEdgH79XTd6DVoRtXWmh3jq5q11tIhfqaLpOcJ5bSUkGgJfCcg"/>
+<div class="p-4 space-y-2">
+<p class="text-xs font-bold text-white uppercase tracking-widest">System Integrated</p>
+<p class="text-[10px] text-zinc-500 leading-relaxed">Your neural-link latency is currently 14ms. Coach Aurora is fully optimized for your current circadian rhythm.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-zinc-950/90 backdrop-blur-3xl border-t border-cyan-500/30 flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-10px_40px_rgba(0,240,255,0.1)]">
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Timer</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Progress</span>
+</div>
+<div class="flex flex-col items-center justify-center text-cyan-400 drop-shadow-[0_0_15px_rgba(0,240,255,0.9)] animate-pulse scale-110 transition-transform cubic-bezier(0.34,1.56,0.64,1) cursor-pointer">
+<span class="material-symbols-outlined" data-icon="smart_toy" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Coach</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-600 grayscale hover:text-cyan-200 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-['Space_Grotesk'] text-[10px] font-medium uppercase tracking-wider mt-1">Community</span>
+</div>
+</footer>
+</body></html>
